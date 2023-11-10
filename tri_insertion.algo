@@ -1,0 +1,27 @@
+ALGORITHM TriParInsertion
+VAR
+    i,j: INTEGER
+    N: BOOLEAN
+    Longueur (Tableau):INTEGER
+BEGIN
+    // Longueur du tableau
+    n <- LONGUEUR(Tableau)
+
+    // Parcourez le tableau à partir du deuxième élément (index 1)
+    POUR i DE 1 À n - 1 FAIRE
+        // Élément actuel à insérer dans la séquence triée
+        ÉlémentActuel <- Tableau[i]
+
+        // Déterminez la position correcte pour l'élément actuel dans la séquence triée
+        j <- i - 1
+        TANT QUE j >= 0 ET Tableau[j] > ÉlémentActuel FAIRE
+            // Déplacez les éléments plus grands d'une position vers la droite
+            Tableau[j + 1] <- Tableau[j]
+            // Décrémentez j pour vérifier la position précédente
+            j <- j - 1
+        FIN TANT QUE
+
+        // Insérez l'élément actuel à la position correcte dans la séquence triée
+        Tableau[j + 1] <- ÉlémentActuel
+    FIN POUR
+END
